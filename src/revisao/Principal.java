@@ -113,6 +113,7 @@ public class Principal {
 						+ " horas: " + h);
 				break;
 			case 0:
+				limparTela();
 				System.out.println("\nprograma encerrado");
 				break;
 			default:
@@ -126,20 +127,25 @@ public class Principal {
 	public static void menu() {
 		// limparTela();
 		System.out
-				.println("\n=============== Menu de Opções ===============\n");
-		System.out.println("1 - Incrementar 1 segundo");
-		System.out.println("2 - Incrementar n segundo");
-		System.out.println("3 - Decrementar 1 segundo");
-		System.out.println("4 - Decrementar n segundo");
-		System.out.println("5 - Incrementar 1 minuto");
-		System.out.println("6 - Incrementar n minuto");
-		System.out.println("7 - Decrementar 1 minuto");
-		System.out.println("8 - Decrementar n minuto");
-		System.out.println("9 - Incrementar 1 hora");
+				.println("\n=============== Menu de Opções ===============");
+		System.out.println("===============================================================================");
+		System.out.println("1  - Incrementar 1 segundo");
+		System.out.println("2  - Incrementar n segundo");
+		System.out.println("3  - Decrementar 1 segundo");
+		System.out.println("4  - Decrementar n segundo");
+		System.out.println("===============================================================================");
+		System.out.println("5  - Incrementar 1 minuto");
+		System.out.println("6  - Incrementar n minuto");
+		System.out.println("7  - Decrementar 1 minuto");
+		System.out.println("8  - Decrementar n minuto");
+		System.out.println("===============================================================================");
+		System.out.println("9  - Incrementar 1 hora");
 		System.out.println("10 - Incrementar n hora");
 		System.out.println("11 - Decrementar 1 hora");
 		System.out.println("12 - Decrementar n hora");
-		System.out.println("0 - Sair");
+		System.out.println("===============================================================================");
+		System.out.println("0  - Sair");
+		System.out.println("===============================================================================");
 	}
 
 	public static void limparTela() {
