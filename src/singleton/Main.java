@@ -7,15 +7,15 @@ public class Main {
 
 	public static void main(String[] args) {
 
-		Singleton vet[] = new Singleton[15];
+		SingletonLimited vet[] = new SingletonLimited[15];
 
 		for (int i = 0; i < vet.length; i++) {
-			vet[i] = Singleton.getInstance();
+			vet[i] = SingletonLimited.getInstance();
 		}
 
 		for (int i = 0; i < vet.length; i++) {
 			System.out.println("posicao " + i + ": " + vet[i]);
-			if (i == 9) {
+			if (i == 2) {
 				System.out.println("\n Instancias repetidas");
 			}
 		}

@@ -2,7 +2,7 @@ package singleton;
 
 public class MyThread implements Runnable{
 	public void run() {
-		Singleton s = Singleton.getInstance();
+		SingletonLimited s = SingletonLimited.getInstance();
 		System.out.println(s);
 	}
 }
