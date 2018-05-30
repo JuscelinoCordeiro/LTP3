@@ -50,7 +50,7 @@ public class Horario {
 	}
 
 	public void incrementaSegundo() {
-		if (segundos < 59) {
+		if (this.segundos < 59) {
 			this.segundos += 1;
 		} else {
 			this.segundos = 0;
@@ -84,8 +84,8 @@ public class Horario {
 	}
 
 	public void decrementaSegundo(int valor) {
-		int minutos = (valor / 60); // parte hora
-		int segundos = (valor % 60); // parte minuto
+		int minutos = (valor / 60); // parte minuto
+		int segundos = (valor % 60); // parte segundo
 		if (minutos > 0) {
 			decrementaMinuto(minutos);
 		}

@@ -2,7 +2,7 @@ package revisao;
 
 import java.util.Scanner;
 
-public class Principal {
+public class TesteCompleto {
 
 	public static void main(String[] args) {
 
@@ -153,4 +153,6 @@ public class Principal {
 			System.out.println("");
 		}
 	}
+	}
+
 }

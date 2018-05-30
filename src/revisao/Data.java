@@ -10,7 +10,9 @@ public class Data {
 	}
 
 	public void setMes(int mes) {
-		this.mes = mes;
+		if (mes > 1 || mes < 12) {
+			this.mes = mes;
+		}
 	}
 
 	public int getAno() {
@@ -18,7 +20,9 @@ public class Data {
 	}
 
 	public void setAno(int ano) {
-		this.ano = ano;
+		if (ano > 0) {
+			this.ano = ano;
+		}
 	}
 
 	public int getDia() {
@@ -26,10 +30,120 @@ public class Data {
 	}
 
 	public void setDia(int dia) {
-//		if(this.mes in [1,3,5,7,8,10,12]){
-//			
-//		}
-		this.dia = dia;
+		if (dia > 1 || dia < 31) {
+			this.dia = dia;
+		}
+	}
+
+	public void incrementaAno() {
+		this.ano++;
+	}
+
+	public void incrementaAno(int n) {
+		this.ano += n;
+	}
+
+	public void decrementaAno() {
+		this.ano--;
+	}
+
+	public void decrementaAno(int n) {
+		this.ano -= n;
+	}
+
+	public void incrementaMes() {
+		if (this.mes < 12) {
+			this.mes++;
+		} else {
+			this.mes = 1;
+			incrementaAno();
+		}
+	}
+
+	public void incrementaMes(int n) {
+		this.mes += n;
+		if (this.mes > 12) {
+			this.mes = this.mes % 12;
+			incrementaAno();
+		}
+	}
+
+	public void decrementaMes() {
+		if (this.mes > 1) {
+			this.mes--;
+		} else {
+			this.mes = 12;
+			decrementaAno();
+		}
+	}
+
+	public void decrementaMes(int n) {
+		int anos = n / 12;
+		int meses = n % 12;
+		if (anos > 0) {
+			decrementaAno(anos);
+		}
+		if (meses > 0) {
+			int diferenca = this.mes - meses;
+			if (diferenca > 0) {
+				this.mes -= meses;
+			} else {
+				decrementaAno();
+				this.mes = 12 - Math.abs(this.mes - meses);
+			}
+		}
+	}
+
+	public void incrementaDia() {
+		if (this.dia == 30
+				&& (this.mes == 4 || this.mes == 6 || this.mes == 9 || this.mes == 11)) {
+			this.dia = 1;
+			incrementaMes();
+		} else if ((this.dia == 28 && this.mes == 2 && (this.ano % 4 != 0))) {
+			this.dia = 1;
+			incrementaMes();
+		} else if ((this.dia == 29 && this.mes == 2) || this.dia == 31) {
+			this.dia = 1;
+			incrementaMes();
+		} else {
+			this.dia++;
+		}
+	}
+
+	public void incrementaDia(int n) {
+		for (int i = 0; i < n; i++) {
+			incrementaDia();
+		}
+	}
+
+	public void decrementaDia() {
+		if (this.dia > 1) {
+			this.dia--;
+		} else if (this.dia == 1
+				&& (this.mes == 4 || this.mes == 6 || this.mes == 9 || this.mes == 11)) {
+			this.dia = 31;
+			decrementaMes();
+		} else if (this.dia == 1 && this.mes == 3 && (this.ano % 4 == 0)) {
+			this.dia = 29;
+			decrementaMes();
+		} else if (this.dia == 1 && this.mes == 3 && (this.ano % 4 != 0)) {
+			this.dia = 28;
+			decrementaMes();
+		} else {
+			this.dia = 31;
+			decrementaMes();
+		}
+	}
+
+	public void decrementaDia(int n) {
+		for (int i = 0; i < n; i++) {
+			decrementaDia();
+		}
+	}
+
+	@Override
+	public String toString() {
+		return dia + "/" + mes + "/" + ano;
 	}
 
 }
